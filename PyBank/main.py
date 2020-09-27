@@ -9,6 +9,7 @@ maxProfit = 0
 maxLoss = 0
 maxProfitMonth = ""
 maxLossMonth = ""
+profitAverage = 0
 inputPath = os.path.join('Resources', 'budget_data.csv')
 
 with open(inputPath, 'r') as csvFile:
@@ -23,6 +24,7 @@ with open(inputPath, 'r') as csvFile:
         numberMonths += 1
         #Sets the current rows second column to an integer
         row[1] = int(row[1])
+
         # Check if the current row in loop has highest profit
         if row[1] > maxProfit:
             maxProfit = row[1]
@@ -36,12 +38,22 @@ with open(inputPath, 'r') as csvFile:
         # Add each rows profit to the totalProfit
         totalProfit = row[1] + totalProfit
 
+        #Adds current rows Date and Profit Value to it's respective lists
+        dates.append(row[0])
+        profits.append(row[1])
+
     # loop
+profitAverage = totalProfit / numberMonths
+
+print(profitAverage)
+print(numberMonths)
 print(totalProfit)
 print(maxProfit)
 print(maxProfitMonth)
 print(maxLoss)
 print(maxLossMonth)
+print(dates)
+print(profits)
 
 # Average of profit loss (after loop)
 # totalProfit/numberMonths

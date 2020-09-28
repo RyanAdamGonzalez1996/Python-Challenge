@@ -1,6 +1,9 @@
 # Python-Challenge
 Python Homework Week2
 
+With the use of functions and importing the sys library, I was able to clean up the output by just calling the function instead of having to seperate, but same blocks of code to output the results of each activity.
+
+Actual Instructions Below
 Create the two programs "PyBank" and "PyPoll" 
 PyBank - * Your task is to create a Python script that analyzes the records to calculate each of the following:
 

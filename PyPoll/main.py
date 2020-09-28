@@ -1,13 +1,11 @@
 import os
 import csv
-import pandas as pd
 
 candidateList = []
 candidateVotes = [0,0,0,0]
-#maybe/Dictionary
-#candidateList ={} 
-#"Candidate": votes
 voteTotal = 0
+highestVote = 0
+winningCandidate = ""
 
 #Declare the input and output file paths for easier reading of code
 inputPath = os.path.join('Resources', 'election_data.csv')
@@ -28,24 +26,30 @@ with open(inputPath, 'r') as csvFile:
         
         #Each time loop goes through row = 1 vote
         voteTotal += 1
-        
+
         #Creates a second list that tracks the votes for each candidate
         #the vote count is the same index as the candidate index
         for candidate in candidateList:
             if candidate == row[2]:
                 candidateVotes[candidateList.index(candidate)] += 1
-
-print(candidateList)
-print(candidateVotes)
-print(voteTotal)
-#each time a row is read in loop, increment vote total
-#voteTotal = voteTotal +=
-
-
-#increment a variable/dictionary for each occuronce of candidate
-
-#loop
+    #loop
 
 #print out results
+print("'''text")
+print("Election Results")
+print("----------------------------")
+print(f"Total Votes: {voteTotal}")
+print("----------------------------")
+#Calculate and output the Candidate, their percentage votes, and total votes
+for x in range(0,4):
+    print(f"{candidateList[x]}: {round((candidateVotes[x] / voteTotal) * 100,2)}% ({candidateVotes[x]})")
+    #    
+    if candidateVotes[x] > highestVote:
+        winningCandidate = candidateList[x]
+        highestVote = candidateVotes[x]
+print("----------------------------")
+print(f"Winner: {winningCandidate}")
+print("----------------------------")
+print("'''")
 
 #create new file and write new set into it

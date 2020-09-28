@@ -61,20 +61,12 @@ print(f"Greatest Decrease in Profits: {maxLossMonth}\n ({maxLoss})")
 
 #Create and Write info into a text file
 with open(outputPath, 'w') as txtfile:
-    txtfile.write("'''text")
-    txtfile.write("Financial Analysis")
-    txtfile.write("-----------------------------")
-    txtfile.write(f"Total Months: {numberMonths}")
-    txtfile.write(f"Total: ${totalProfit}")
-    txtfile.write(f"Average Change: ${profitAverage}")
-    txtfile.write(f"Greatest Increase in Profits: {maxProfitMonth}\n ({maxProfit})")
-    txtfile.write(f"Greatest Decrease in Profits: {maxLossMonth}\n ({maxLoss})")
-# Average of profit loss (after loop)
-# totalProfit/numberMonths
-
-# print out results
-
-#writefile = zip(dates,profits)
-
-# create new file and write new set into it
-# .writerows(writefiles)
+    
+    txtfile.write("'''text\n")
+    txtfile.write("Financial Analysis\n")
+    txtfile.write("-----------------------------\n")
+    txtfile.write(f"Total Months: {numberMonths}\n")
+    txtfile.write(f"Total: ${totalProfit}\n")
+    txtfile.write(f"Average Change: ${profitAverage}\n")
+    txtfile.write(f"Greatest Increase in Profits: {maxProfitMonth}\n ({maxProfit})\n")
+    txtfile.write(f"Greatest Decrease in Profits: {maxLossMonth}\n ({maxLoss})\n")

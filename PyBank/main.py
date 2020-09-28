@@ -10,7 +10,10 @@ maxLoss = 0
 maxProfitMonth = ""
 maxLossMonth = ""
 profitAverage = 0
+
+#Declare the input and output file paths for easier reading of code
 inputPath = os.path.join('Resources', 'budget_data.csv')
+outputPath = os.path.join('Analysis', 'output.txt')
 
 with open(inputPath, 'r') as csvFile:
 
@@ -56,8 +59,16 @@ print(f"Average Change: ${profitAverage}")
 print(f"Greatest Increase in Profits: {maxProfitMonth}\n ({maxProfit})")
 print(f"Greatest Decrease in Profits: {maxLossMonth}\n ({maxLoss})")
 
-
-
+#Create and Write info into a text file
+with open(outputPath, 'w') as txtfile:
+    txtfile.write("'''text")
+    txtfile.write("Financial Analysis")
+    txtfile.write("-----------------------------")
+    txtfile.write(f"Total Months: {numberMonths}")
+    txtfile.write(f"Total: ${totalProfit}")
+    txtfile.write(f"Average Change: ${profitAverage}")
+    txtfile.write(f"Greatest Increase in Profits: {maxProfitMonth}\n ({maxProfit})")
+    txtfile.write(f"Greatest Decrease in Profits: {maxLossMonth}\n ({maxLoss})")
 # Average of profit loss (after loop)
 # totalProfit/numberMonths
 

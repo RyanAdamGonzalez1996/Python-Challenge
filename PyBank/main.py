@@ -43,17 +43,20 @@ with open(inputPath, 'r') as csvFile:
         profits.append(row[1])
 
     # loop
-profitAverage = totalProfit / numberMonths
+#Get the average profit and round to 2 decimal places
+profitAverage = round((totalProfit / numberMonths),2)
 
-print(profitAverage)
-print(numberMonths)
-print(totalProfit)
-print(maxProfit)
-print(maxProfitMonth)
-print(maxLoss)
-print(maxLossMonth)
-print(dates)
-print(profits)
+#Output to terminal
+print("'''text")
+print("Financial Analysis")
+print("-----------------------------")
+print(f"Total Months: {numberMonths}")
+print(f"Total: ${totalProfit}")
+print(f"Average Change: ${profitAverage}")
+print(f"Greatest Increase in Profits: {maxProfitMonth}\n ({maxProfit})")
+print(f"Greatest Decrease in Profits: {maxLossMonth}\n ({maxLoss})")
+
+
 
 # Average of profit loss (after loop)
 # totalProfit/numberMonths

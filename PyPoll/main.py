@@ -1,5 +1,7 @@
 import os
 import csv
+import sys
+
 
 candidateList = []
 candidateVotes = [0,0,0,0]
@@ -10,7 +12,6 @@ winningCandidate = ""
 #Declare the input and output file paths for easier reading of code
 inputPath = os.path.join('Resources', 'election_data.csv')
 outputPath = os.path.join('Analysis', 'output.txt')
-#df = pd.read_csv('Resources', 'election_data.csv')
 
 with open(inputPath, 'r') as csvFile:
 
@@ -53,3 +54,22 @@ print("----------------------------")
 print("'''")
 
 #create new file and write new set into it
+with open(outputPath, 'w') as txtfile:
+    #change the active output location to the file specified
+    sys.stdout = txtfile
+    print("'''text")
+    print("Election Results")
+    print("----------------------------")
+    print(f"Total Votes: {voteTotal}")
+    print("----------------------------")
+    #Calculate and output the Candidate, their percentage votes, and total votes
+    for x in range(0,4):
+        print(f"{candidateList[x]}: {round((candidateVotes[x] / voteTotal) * 100,2)}% ({candidateVotes[x]})")
+        #    
+        if candidateVotes[x] > highestVote:
+            winningCandidate = candidateList[x]
+            highestVote = candidateVotes[x]
+    print("----------------------------")
+    print(f"Winner: {winningCandidate}")
+    print("----------------------------")
+    print("'''")
